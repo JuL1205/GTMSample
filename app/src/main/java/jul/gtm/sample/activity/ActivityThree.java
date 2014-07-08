@@ -19,6 +19,11 @@ public class ActivityThree extends Activity {
 
         Button btn = (Button) findViewById(R.id.btnStart);
         btn.setVisibility(View.GONE);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
 
         GTMUtil.openScreen(this, getString(R.string.activity_three));
     }

@@ -27,6 +27,11 @@ public class ActivityTwo extends Activity {
                 startActivity(new Intent(ActivityTwo.this, ActivityThree.class));
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
 
         GTMUtil.openScreen(this, getString(R.string.activity_two));
     }

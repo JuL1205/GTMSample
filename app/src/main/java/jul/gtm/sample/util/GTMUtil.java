@@ -1,9 +1,12 @@
 package jul.gtm.sample.util;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.google.android.gms.tagmanager.DataLayer;
 import com.google.android.gms.tagmanager.TagManager;
+
+import jul.gtm.sample.MyApplication;
 
 /**
  * Created by JuL on 2014-07-07.

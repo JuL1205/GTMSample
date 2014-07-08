@@ -29,6 +29,11 @@ public class MainActivity extends Activity {
                 startActivity(new Intent(MainActivity.this, ActivityOne.class));
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
 
         GTMUtil.openScreen(this, getString(R.string.main_activity));
     }
