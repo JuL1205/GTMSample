@@ -18,13 +18,10 @@ import jul.gtm.sample.util.ContainerHolderSingleton;
  * Created by JuL on 2014-07-04.
  */
 public class MyApplication extends Application {
-    private static Context mContext;
 
     @Override
     public void onCreate() {
         super.onCreate();
-
-        mContext = this;
 
         initGTM();
     }
@@ -44,7 +41,6 @@ public class MyApplication extends Application {
                 }
 
                 ContainerHolderSingleton.setContainerHolder(containerHolder);
-                containerHolder.refresh();
                 containerHolder.setContainerAvailableListener(new ContainerHolder.ContainerAvailableListener() {
                     @Override
                     public void onContainerAvailable(ContainerHolder containerHolder, String containerVer) {

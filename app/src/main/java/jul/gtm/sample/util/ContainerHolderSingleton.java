@@ -1,5 +1,7 @@
 package jul.gtm.sample.util;
 
+import android.util.Log;
+
 import com.google.android.gms.tagmanager.ContainerHolder;
 
 /**
@@ -20,5 +22,14 @@ public class ContainerHolderSingleton {
 
     public static void setContainerHolder(ContainerHolder c) {
         containerHolder = c;
+    }
+
+    public static boolean isEmptyContainer(){
+        if(containerHolder == null){
+            Log.w("JuL", "containerHolder is null");
+            return true;
+        } else{
+            return false;
+        }
     }
 }

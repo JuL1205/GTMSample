@@ -29,6 +29,8 @@ public class MainActivity extends Activity {
                 startActivity(new Intent(MainActivity.this, ActivityOne.class));
             }
         });
+
+        GTMUtil.refreshContainer();
     }
 
     @Override

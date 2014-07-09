@@ -14,15 +14,41 @@ import jul.gtm.sample.MyApplication;
 public class GTMUtil {
 
     public static void openScreen(Context context, String screenName){
-        DataLayer dataLayer = TagManager.getInstance(context).getDataLayer();
+        boolean enable = getBoolean("ga_screen_enable");
+        Log.i("JuL", "ga_screen_enable = "+enable);
 
-        dataLayer.pushEvent("openScreen", DataLayer.mapOf("screenName", screenName));
+        if(enable){
+            DataLayer dataLayer = TagManager.getInstance(context).getDataLayer();
+
+            dataLayer.pushEvent("openScreen", DataLayer.mapOf("screenName", screenName));
+        }
     }
 
 
     public static void fireEvent(Context context, String btnName){
-        DataLayer dataLayer = TagManager.getInstance(context).getDataLayer();
+        boolean enable = getBoolean("ga_event_enable");
+        Log.i("JuL", "ga_event_enable = "+enable);
 
-        dataLayer.pushEvent("btnClick", DataLayer.mapOf("btnName", btnName));
+        if(enable){
+            DataLayer dataLayer = TagManager.getInstance(context).getDataLayer();
+
+            dataLayer.pushEvent("btnClick", DataLayer.mapOf("btnName", btnName));
+        }
     }
+
+
+    public static void refreshContainer(){
+        if(!ContainerHolderSingleton.isEmptyContainer()){
+            ContainerHolderSingleton.getContainerHolder().refresh();
+        }
+    }
+
+    public static boolean getBoolean(String key){
+        if(ContainerHolderSingleton.isEmptyContainer()){
+            return false;
+        } else{
+            return ContainerHolderSingleton.getContainerHolder().getContainer().getBoolean(key);
+        }
+    }
+
 }
